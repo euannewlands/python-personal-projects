@@ -1,6 +1,7 @@
 import numpy as np
+from itertools import cycle
 
-# TODO: Add some docstrings for each method
+# TODO: add condition for if no winner
 
 class NaughtsAndCrosses:
     def __init__(self):
@@ -51,7 +52,7 @@ class NaughtsAndCrosses:
     def ask_user(self):
         pos = None
         while pos == None:
-            pos = input("\nEnter position [row,column]: ")
+            pos = input("Enter position [row,column]: ")
             try:
                 row, col = self.validate_pos(pos)
                 row, col = self.nlp_position(row, col)
@@ -130,12 +131,12 @@ class NaughtsAndCrosses:
 
     def main_display(self):
         b = self.board
-        print("    1   2    3")
-        print(f'1   {b[0][0]} | {b[0][1]} | {b[0][2]}')
+        print(f'\n1   {b[0][0]} | {b[0][1]} | {b[0][2]}')
         print(f'    --|---|--')
         print(f'2   {b[1][0]} | {b[1][1]} | {b[1][2]}')
         print(f'    --|---|--')
         print(f'3   {b[2][0]} | {b[2][1]} | {b[2][2]}')
+        print("    1   2   3")
 
     def play(self):
         self.main_loop()

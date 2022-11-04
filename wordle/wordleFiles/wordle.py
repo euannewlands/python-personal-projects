@@ -85,7 +85,7 @@ def update_keyboard(guess_letter, latest_keyboard):
     RETURNS: latest_keyboard [list] - keyboard with the removed letter'''
     # bypass error when trying to remove letter that has already been removed (when user guesses incorrect letter twice)
     try:
-        latest_keyboard.remove(guess_letter)
+        latest_keyboard.remove(guess_letter.upper())
     except:
         pass
     
@@ -148,7 +148,7 @@ def ask_for_guess(wotd):
     all_guess = []
     for attempts in range(1,7):
         guess = None
-        print("Potential letters:", user_keyboard)
+        print("Potential letters:", ' '.join(user_keyboard))
         
         while guess == None:           # while loop to make sure guess is valid word
             guess = input(f"Attempt {attempts}: ")
@@ -191,7 +191,7 @@ def check_guess(guess, wotd, user_keyboard):
             user_keyboard [list] - keyboard hint; alphabet minus letters incorrectly guessed by the user
 
     RETURNS: answer[bool] - True if guess == Word of the Day
-             user_keyboard - Updated keyboard hint for if guess included incorrect letters
+             user_keyboard [list] - Updated keyboard hint for if guess included incorrect letters
     '''
     guess_output = []                           # dictionary to store formatted guess
     

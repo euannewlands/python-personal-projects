@@ -1,9 +1,10 @@
-from NandC.NaughtsCrosses import NaughtsAndCrosses
+from hangman.hangman import Hangman
 
 play = True
+print("\nLet's play Hangman!")
 while play == True:
-    game = NaughtsAndCrosses() # restarts game with clean board
-    game.play()
+    game = Hangman() # restarts game with clean board
+    game.main_loop()
     ask = input("Do you want to play again [y/n]? ")
     if ask != 'y':
         "Thanks for playing!"
